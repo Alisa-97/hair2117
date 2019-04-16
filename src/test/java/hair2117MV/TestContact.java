@@ -27,7 +27,9 @@ public class TestContact {
             Contact contact = new Contact("Alisa", "Strada Sibiului", "074122334455");
             repo.addContact(contact);
         } catch (InvalidFormatException e) {
-            System.out.println(e.getMessage());
+            String error = e.getMessage();
+            assertEquals("Cannot convert",error);
+            //System.out.println(e.getMessage());
         }
         assertEquals(size+1,repo.getContacts().size());
     }
@@ -41,7 +43,7 @@ public class TestContact {
             Contact contact = new Contact("Alisa", "Strada Sibiului", "a074122334455");
             repo.addContact(contact);
         } catch (InvalidFormatException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }
         assertEquals(size,repo.getContacts().size());
     }

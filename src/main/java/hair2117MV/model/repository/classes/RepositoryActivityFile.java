@@ -48,12 +48,12 @@ public class RepositoryActivityFile implements RepositoryActivity{
 	public boolean addActivity(Activity activity) {
 		int  i = 0;
 		boolean conflicts = false;
-		
+
 		while( i < activities.size() )
 		{
-			if ( activities.get(i).getStart().compareTo(activity.getDuration()) < 0 &&
-					activity.getStart().compareTo(activities.get(i).getDuration()) < 0 )
-				conflicts = true;
+			if ( activities.get(i).getStart().compareTo(activity.getDuration()) < 0)
+				if(activity.getStart().compareTo(activities.get(i).getDuration()) < 0 )
+					conflicts = true;
 			i++;
 		}
 		if ( !conflicts )
